@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter - Utility Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><span class="logo">🛠️</span><span class="brand-name">Utility Tools</span></div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">Tools</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle"><span class="theme-icon">🌙</span></button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#tools">Tools</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </div>
+    <div class="tool-container">
+	<a href="../index.html" class="back-btn">← Back</a>
+        <div class="tool-header"><h1>📊 Word Counter</h1><p>Count words and characters</p></div>
+        <div class="tool-content"><div class="input-group"><label>Enter Text</label><textarea id="text" rows="8" placeholder="Type or paste your text..."></textarea></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px;">
+            <div style="background:var(--bg-secondary);padding:15px;border-radius:8px;text-align:center;">
+                <div style="font-size:2rem;font-weight:bold;color:var(--primary-color);" id="words">0</div>
+                <div style="color:var(--text-light);">Words</div>
+            </div>
+            <div style="background:var(--bg-secondary);padding:15px;border-radius:8px;text-align:center;">
+                <div style="font-size:2rem;font-weight:bold;color:var(--secondary-color);" id="chars">0</div>
+                <div style="color:var(--text-light);">Characters</div>
+            </div>
+            <div style="background:var(--bg-secondary);padding:15px;border-radius:8px;text-align:center;">
+                <div style="font-size:2rem;font-weight:bold;color:var(--accent-color);" id="sentences">0</div>
+                <div style="color:var(--text-light);">Sentences</div>
+            </div>
+        </div>
+        <script>
+        function count() {
+            const txt = document.getElementById('text').value;
+            const words = txt.trim().split(/\s+/).filter(w => w.length > 0);
+            document.getElementById('words').textContent = words.length;
+            document.getElementById('chars').textContent = txt.length;
+            const sents = txt.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            document.getElementById('sentences').textContent = sents.length;
+        }
+        document.getElementById('text').addEventListener('input', count);
+        </script></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Utility Tools</h3><p>Your one-stop solution for everyday online utilities</p></div>
+                <div class="footer-section"><h3>Quick Links</h3><ul><li><a href="../index.html">Home</a></li><li><a href="../index.html#tools">Tools</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h3>Contact</h3><p>📧 biswaslamichhane00036@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Utility Tools. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

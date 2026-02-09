@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number to Words - Utility Tools</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-brand">
+      <span class="logo">🛠️</span>
+      <span class="brand-name">Utility Tools</span>
+    </div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="../index.html#tools">Tools</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+<div class="tool-container">
+  <a href="../index.html" class="back-btn">← Back</a>
+
+  <div class="tool-header">
+    <h1>🔢 Number to Words</h1>
+    <p>Convert numbers to words (English & Nepali)</p>
+  </div>
+
+  <div class="tool-content">
+    <div class="input-group">
+      <label>Number</label>
+      <input type="text" id="num" value="123" placeholder="e.g. 123, 0.54, 1,234.56">
+    </div>
+
+    <div class="input-group">
+      <label>Language</label>
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="np">Nepali</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" onclick="convert()">Convert</button>
+    <button class="btn btn-secondary" onclick="copyResult()">📋 Copy</button>
+
+    <div class="result-box" id="result">Result</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Utility Tools</h3>
+        <p>Your one-stop solution for everyday online utilities</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#tools">Tools</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📧 biswaslamichhane00036@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Utility Tools. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ================== LOGIC UNCHANGED ==================
+
+// English words
+const ones=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
+const tens=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+const teens=['Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+
+// Nepali numbers 0-99
+const nepaliNumWords=['शून्य','एक','दुई','तीन','चार','पाँच','छ','सात','आठ','नौ','दस','एघार','बाह्र','तेह्र','चौध','पन्ध्र','सोह्र','सत्र','अठार','उन्नाइस','बीस','एक्काइस','बाईस','तेइस','चौबीस','पच्चिस','छब्बीस','सत्ताइस','अठ्ठाइस','उनन्तिस','तीस','एकतीस','बतीस','तेतीस','चौतीस','पैंतीस','छतीस','सैतीस','अठतीस','उनन्ताली','चालीस','एकचालीस','बयालीस','त्रिचालीस','चवालीस','पैंतालीस','छयालीस','सतचालीस','अठचालीस','उनन्चास','पचास','एकाउन्न','बाउन्न','त्रिपन्न','चवन्न','पच्पन्न','छप्पन्न','सन्ताउन्न','अन्ठाउन्न','उनन्साठी','साठी','एकसठ्ठी','बयसठ्ठी','त्रिसठ्ठी','चौंसठ्ठी','पैंसठ्ठी','छयसठ्ठी','सतसठ्ठी','अठसठ्ठी','उनन्सत्तरी','सत्तरी','एकहत्तर','बहत्तर','त्रिहत्तर','चौहत्तर','पचहत्तर','छयहत्तर','सतहत्तर','अठहत्तर','उनासी','अस्सी','एकासी','बयासी','त्रियासी','चौरासी','पचासी','छयासी','सतासी','अठासी','उनान्नब्बे','नब्बे','एकानब्बे','बयानब्बे','त्रियानब्बे','चौरानब्बे','पन्चानब्बे','छयानब्बे','सन्तानब्बे','अन्ठानब्बे','उनान्सय'];
+
+function toWordsEN(n){
+  if(n===0) return 'Zero';
+  if(n<10) return ones[n];
+  if(n<20) return teens[n-10];
+  if(n<100) return tens[Math.floor(n/10)] + (n%10?' '+ones[n%10]:'');
+  if(n<1000) return ones[Math.floor(n/100)]+' Hundred' + (n%100?' '+toWordsEN(n%100):'');
+  if(n<100000) return toWordsEN(Math.floor(n/1000))+' Thousand' + (n%1000?' '+toWordsEN(n%1000):'');
+  if(n<10000000) return toWordsEN(Math.floor(n/100000))+' Lakh' + (n%100000?' '+toWordsEN(n%100000):'');
+  if(n<1000000000) return toWordsEN(Math.floor(n/10000000))+' Crore' + (n%10000000?' '+toWordsEN(n%10000000):'');
+  return 'Number too large';
+}
+
+function toWordsNP(n){
+  if(n===0) return 'शून्य';
+  if(n<=99) return nepaliNumWords[n];
+  if(n<1000) return nepaliNumWords[Math.floor(n/100)]+' सय'+(n%100?' '+toWordsNP(n%100):'');
+  if(n<100000) return toWordsNP(Math.floor(n/1000))+' हजार'+(n%1000?' '+toWordsNP(n%1000):'');
+  if(n<10000000) return toWordsNP(Math.floor(n/100000))+' लाख'+(n%100000?' '+toWordsNP(n%100000):'');
+  if(n<1000000000) return toWordsNP(Math.floor(n/10000000))+' करोड'+(n%10000000?' '+toWordsNP(n%10000000):'');
+  return 'संख्या धेरै ठूलो भयो';
+}
+
+function convert(){
+  let input=document.getElementById('num').value.trim();
+  const lang=document.getElementById('lang').value;
+  input=input.replace(/,/g,'');
+  if(!input){result.textContent='Please enter a number';return;}
+  const parts=input.split('.');
+  const integerPart=parseInt(parts[0]||0,10);
+  if(isNaN(integerPart)){result.textContent='Invalid number';return;}
+
+  let rupees=lang==='np'?toWordsNP(integerPart)+' रुपैयाँ':toWordsEN(integerPart)+' Rupees';
+  let paisa='';
+  if(parts[1]){
+    let d=parseInt(parts[1].padEnd(2,'0').substring(0,2),10);
+    if(d>0) paisa=lang==='np'?toWordsNP(d)+' पैसा':toWordsEN(d)+' Paisa';
+  }
+  result.textContent=rupees+(paisa?' '+paisa:'');
+}
+
+function copyResult(){
+  navigator.clipboard.writeText(result.innerText).then(()=>{
+    alert("Copied: "+result.innerText);
+  });
+}
+
+document.getElementById('num').addEventListener('input',convert);
+document.getElementById('lang').addEventListener('change',convert);
+convert();
+</script>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

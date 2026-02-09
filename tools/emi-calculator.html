@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - Utility Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><span class="logo">🛠️</span><span class="brand-name">Utility Tools</span></div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">Tools</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle"><span class="theme-icon">🌙</span></button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#tools">Tools</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </div>
+    <div class="tool-container">
+	<a href="../index.html" class="back-btn">← Back</a>
+        <div class="tool-header"><h1>🏦 EMI Calculator</h1><p>Calculate loan EMI</p></div>
+        <div class="tool-content"><div class="input-group"><label>Loan Amount</label><input type="number" id="loan" value="100000"></div>
+        <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="rate" value="10" step="0.1"></div>
+        <div class="input-group"><label>Tenure (months)</label><input type="number" id="tenure" value="12"></div>
+        <button class="btn btn-primary" onclick="calc()">Calculate EMI</button>
+        <div class="result-box" id="result">Result</div>
+        <script>
+        function calc() {
+            const p = parseFloat(document.getElementById('loan').value);
+            const r = parseFloat(document.getElementById('rate').value) / 12 / 100;
+            const n = parseInt(document.getElementById('tenure').value);
+            if (!p || !r || !n) return;
+            const emi = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+            document.getElementById('result').textContent = `Monthly EMI: ₹${emi.toFixed(2)}`;
+        }
+        document.getElementById('loan').addEventListener('input', calc);
+        calc();
+        </script></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Utility Tools</h3><p>Your one-stop solution for everyday online utilities</p></div>
+                <div class="footer-section"><h3>Quick Links</h3><ul><li><a href="../index.html">Home</a></li><li><a href="../index.html#tools">Tools</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h3>Contact</h3><p>📧 biswaslamichhane00036@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Utility Tools. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

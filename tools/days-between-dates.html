@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Between Dates - Utility Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><span class="logo">🛠️</span><span class="brand-name">Utility Tools</span></div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">Tools</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle"><span class="theme-icon">🌙</span></button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#tools">Tools</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </div>
+    <div class="tool-container">
+	<a href="../index.html" class="back-btn">← Back</a>
+        <div class="tool-header"><h1>📆 Days Between Dates</h1><p>Calculate days between dates</p></div>
+        <div class="tool-content"><div class="input-group"><label>Start Date</label><input type="date" id="start"></div>
+        <div class="input-group"><label>End Date</label><input type="date" id="end"></div>
+        <button class="btn btn-primary" onclick="calc()">Calculate</button>
+        <div class="result-box" id="result">Select dates</div>
+        <script>
+        function calc() {
+            const start = new Date(document.getElementById('start').value);
+            const end = new Date(document.getElementById('end').value);
+            if (!document.getElementById('start').value || !document.getElementById('end').value) return;
+            const diff = Math.abs(end - start);
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('result').textContent = `${days} days`;
+        }
+        </script></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Utility Tools</h3><p>Your one-stop solution for everyday online utilities</p></div>
+                <div class="footer-section"><h3>Quick Links</h3><ul><li><a href="../index.html">Home</a></li><li><a href="../index.html#tools">Tools</a></li><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+                <div class="footer-section"><h3>Contact</h3><p>📧 biswaslamichhane00036@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Utility Tools. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

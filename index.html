@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All-in-One Utility Tools - Free online tools for calculations, conversions, text processing, and more. Currency converter, BMI calculator, QR generator, and many other utilities.">
+    <meta name="keywords" content="online tools, utility tools, calculator, converter, QR generator, BMI calculator, currency converter">
+    <meta name="author" content="Utility Tools">
+    <title>All-in-One Utility Tools - Free Online Utilities</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAi5JREFUWIXtl09I02Ecxz/P3t/mpmauzeacGv5ZUZAQdRAkSDoVdOkP1KVLXTx0CqRTh4IuHbqUdCroEARBEXQQJKJDRBAUZJj9cWq5zTm37e3duy4RM3O+rzP0A7/Ty/N7Ps/neb7f5/eAQqFQKBSK/wMJXJdlmWw2i2maWJaFpmk4HA6cTieiKB6IhyRJSJKELMuYpkk2myWfz1MsFrEsC0mSEAQBp9OJy+VCFMUDcRFFEbfbTSqVwufzIUkShmGQSqVIJBLkcjkABEHA4XDgdDrRNA1d1xFFEYfDgc/nQ5IkLMsim82Sy+UwDAPTNLEsC1mWEQQBh8OBJEk4nU50XcfpdKLrOo2NjQSDQZxOJ4lEgmQySSKRIJVKYZomAJqmoes6giDgdDrxer1EIhHq6+vRNA1d1+no6GB0dJTe3l7C4TDpdJhoNEo8HieXy/0RsG1akiQ8Hg/hcJhwOIzH40EURRoaGhgaGiISiRAMBsnlcpRKJdLpNKlUCs9er7fk9XqJRqPk83ni8TgbGxssLy+zuLjI+vo6PM9Tvr6+Pn7OdF3H4/GwsLBAvV7HsixWV1eZnZ1lfX2dX4Kqqnp/f/+TkZGRwWAwSKlUIplMsrW1Rbms+/1++vr6mJ6epr29nfb2dgzDwDAMCoUCy8vLLC0tsb29vfueSCQSiUTe7Z46PT39RlVVx87ODrlcDsMw0DQNj8dDa2sroijypwdQFAqFQqFQ/BgfAXdZU/s9V/7hAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🛠️</span>
+                <span class="brand-name">Utility Tools</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>All-in-One Utility Tools</h1>
+            <p>Your complete toolkit for everyday calculations, conversions, and utilities</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for tools..." aria-label="Search tools">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="recent-tools" id="recentToolsSection" style="display: none;">
+        <div class="container">
+            <h2>Recently Used Tools</h2>
+            <div class="tools-grid" id="recentToolsGrid"></div>
+        </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <div class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">💰</span>
+                    Financial Tools
+                </h2>
+                <div class="tools-grid">
+                    <a href="tools/currency-converter.html" class="tool-card" data-category="financial" data-name="Currency Converter">
+                        <div class="tool-icon">💱</div>
+                        <h3>Currency Converter</h3>
+                        <p>Convert between different currencies with live rates</p>
+                    </a>
+                    <a href="tools/emi-calculator.html" class="tool-card" data-category="financial" data-name="EMI Calculator">
+                        <div class="tool-icon">🏦</div>
+                        <h3>EMI Calculator</h3>
+                        <p>Calculate loan EMI and payment schedules</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">🔄</span>
+                    Conversion Tools
+                </h2>
+                <div class="tools-grid">
+                    <a href="tools/unit-converter.html" class="tool-card" data-category="conversion" data-name="Unit Converter">
+                        <div class="tool-icon">📏</div>
+                        <h3>Unit Converter</h3>
+                        <p>Convert length, weight, and temperature units</p>
+                    </a>
+                    <a href="tools/number-to-words.html" class="tool-card" data-category="conversion" data-name="Number to Words">
+                        <div class="tool-icon">🔢</div>
+                        <h3>Number to Words</h3>
+                        <p>Convert numbers to English and Nepali words</p>
+                    </a>
+                    <a href="tools/date-converter.html" class="tool-card" data-category="conversion" data-name="Date Converter">
+                        <div class="tool-icon">📅</div>
+                        <h3>Date Converter</h3>
+                        <p>Convert between BS (Bikram Sambat) and AD dates</p>
+                    </a>
+                    <a href="tools/url-encoder.html" class="tool-card" data-category="conversion" data-name="URL Encoder/Decoder">
+                        <div class="tool-icon">🔗</div>
+                        <h3>URL Encoder/Decoder</h3>
+                        <p>Encode and decode URLs for safe transmission</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">🧮</span>
+                    Calculators
+                </h2>
+                <div class="tools-grid">
+                    <a href="tools/calculator.html" class="tool-card" data-category="calculator" data-name="Calculator">
+                        <div class="tool-icon">➗</div>
+                        <h3>Calculator</h3>
+                        <p>Basic and scientific calculator</p>
+                    </a>
+                    <a href="tools/age-calculator.html" class="tool-card" data-category="calculator" data-name="Age Calculator">
+                        <div class="tool-icon">🎂</div>
+                        <h3>Age Calculator</h3>
+                        <p>Calculate your exact age in years, months, and days</p>
+                    </a>
+                    <a href="tools/days-between-dates.html" class="tool-card" data-category="calculator" data-name="Days Between Dates">
+                        <div class="tool-icon">📆</div>
+                        <h3>Days Between Dates</h3>
+                        <p>Calculate the difference between two dates</p>
+                    </a>
+                    <a href="tools/bmi-calculator.html" class="tool-card" data-category="calculator" data-name="BMI Calculator">
+                        <div class="tool-icon">⚖️</div>
+                        <h3>BMI Calculator</h3>
+                        <p>Calculate your Body Mass Index and health status</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">📝</span>
+                    Text Tools
+                </h2>
+                <div class="tools-grid">
+                    <a href="tools/word-counter.html" class="tool-card" data-category="text" data-name="Word Counter">
+                        <div class="tool-icon">📊</div>
+                        <h3>Word Counter</h3>
+                        <p>Count words, characters, and sentences in your text</p>
+                    </a>
+                    <a href="tools/case-converter.html" class="tool-card" data-category="text" data-name="Case Converter">
+                        <div class="tool-icon">🔤</div>
+                        <h3>Case Converter</h3>
+                        <p>Convert text case and remove extra spaces</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2 class="category-title">
+                    <span class="category-icon">🎲</span>
+                    Generators
+                </h2>
+                <div class="tools-grid">
+                    <a href="tools/qr-generator.html" class="tool-card" data-category="generator" data-name="QR Code Generator">
+                        <div class="tool-icon">📱</div>
+                        <h3>QR Code Generator</h3>
+                        <p>Generate QR codes for text, URLs, and more</p>
+                    </a>
+                    <a href="tools/random-number.html" class="tool-card" data-category="generator" data-name="Random Number Generator">
+                        <div class="tool-icon">🎰</div>
+                        <h3>Random Number</h3>
+                        <p>Generate random numbers within a range</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>No tools found</h3>
+                <p>Try searching with different keywords</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Utility Tools</h3>
+                    <p>Your one-stop solution for everyday online utilities</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 biswaslamichhane00036@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Utility Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

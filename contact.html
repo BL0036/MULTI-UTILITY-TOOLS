@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Utility Tools - Get in touch with us">
+    <title>Contact - Utility Tools</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAi5JREFUWIXtl09I02Ecxz/P3t/mpmauzeacGv5ZUZAQdRAkSDoVdOkP1KVLXTx0CqRTh4IuHbqUdCroEARBEXQQJKJDRBAUZJj9cWq5zTm37e3duy4RM3O+rzP0A7/Ty/N7Ps/neb7f5/eAQqFQKBSK/wMJXJdlmWw2i2maWJaFpmk4HA6cTieiKB6IhyRJSJKELMuYpkk2myWfz1MsFrEsC0mSEAQBp9OJy+VCFMUDcRFFEbfbTSqVwufzIUkShmGQSqVIJBLkcjkABEHA4XDgdDrRNA1d1xFFEYfDgc/nQ5IkLMsim82Sy+UwDAPTNLEsC1mWEQQBh8OBJEk4nU50XcfpdKLrOo2NjQSDQZxOJ4lEgmQySSKRIJVKYZomAJqmoes6giDgdDrxer1EIhHq6+vRNA1d1+no6GB0dJTe3l7C4TDpdJhoNEo8HieXy/0RsG1akiQ8Hg/hcJhwOIzH40EURRoaGhgaGiISiRAMBsnlcpRKJdLpNKlUCs9er7fk9XqJRqPk83ni8TgbGxssLy+zuLjI+vo6PM9Tvr6+Pn7OdF3H4/GwsLBAvV7HsixWV1eZnZ1lfX2dX4Kqqnp/f/+TkZGRwWAwSKlUIplMsrW1Rbms+/1++vr6mJ6epr29nfb2dgzDwDAMCoUCy8vLLC0tsb29vfueSCQSiUTe7Z46PT39RlVVx87ODrlcDsMw0DQNj8dDa2sroijypwdQFAqFQqFQ/BgfAXdZU/s9V/7hAAAAAElFTkSuQmCC">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🛠️</span>
+                <span class="brand-name">Utility Tools</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">Tools</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="page-content">
+        <div class="container">
+	<a href="index.html" class="back-btn">← Back</a>
+            <div class="page-header">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>For inquiries, feedback, or support</p>
+                        <a href="mailto:biswaslamichhane00036@gmail.com" class="contact-link">
+                            biswaslamichhane00036@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">💬</div>
+                        <h3>Feedback</h3>
+                        <p>We value your suggestions and ideas for new tools or improvements to existing ones.</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">🐛</div>
+                        <h3>Report Issues</h3>
+                        <p>Found a bug or experiencing issues? Let us know so we can fix it quickly.</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Utility Tools</h3>
+                    <p>Your one-stop solution for everyday online utilities</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 biswaslamichhane00036@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Utility Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formMessage = document.getElementById('formMessage');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoLink = `mailto:biswaslamichhane00036@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+            
+            formMessage.textContent = 'Opening your email client...';
+            formMessage.style.color = '#27ae60';
+            formMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                this.reset();
+                formMessage.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

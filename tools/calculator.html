@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Utility Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">🛠️</span>
+                <span class="brand-name">Utility Tools</span>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#tools">Tools</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle"><span class="theme-icon">🌙</span></button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#tools">Tools</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+    </div>
+
+    <div class="tool-container">
+	<a href="../index.html" class="back-btn">← Back</a>
+        <div class="tool-header">
+            <h1>➗ Calculator</h1>
+            <p>Basic calculator</p>
+        </div>
+        <div class="tool-content">
+            
+            <div class="calculator-display" id="display">0</div>
+            <div class="calculator-buttons">
+                <button class="calc-btn clear" onclick="clearDisplay()">C</button>
+                <button class="calc-btn" onclick="deleteLast()">⌫</button>
+                <button class="calc-btn operator" onclick="appendOperator('/')">/</button>
+                <button class="calc-btn operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="calc-btn" onclick="appendNumber('7')">7</button>
+                <button class="calc-btn" onclick="appendNumber('8')">8</button>
+                <button class="calc-btn" onclick="appendNumber('9')">9</button>
+                <button class="calc-btn operator" onclick="appendOperator('-')">-</button>
+                
+                <button class="calc-btn" onclick="appendNumber('4')">4</button>
+                <button class="calc-btn" onclick="appendNumber('5')">5</button>
+                <button class="calc-btn" onclick="appendNumber('6')">6</button>
+                <button class="calc-btn operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="calc-btn" onclick="appendNumber('1')">1</button>
+                <button class="calc-btn" onclick="appendNumber('2')">2</button>
+                <button class="calc-btn" onclick="appendNumber('3')">3</button>
+                <button class="calc-btn equals" onclick="calculate()" style="grid-row: span 2;">=</button>
+                
+                <button class="calc-btn" onclick="appendNumber('0')" style="grid-column: span 2;">0</button>
+                <button class="calc-btn" onclick="appendNumber('.')">.</button>
+            </div>
+            <script>
+                let currentValue = '0', operator = null, previousValue = null, shouldResetDisplay = false;
+                function updateDisplay() { document.getElementById('display').textContent = currentValue; }
+                function appendNumber(num) {
+                    if (shouldResetDisplay) { currentValue = num; shouldResetDisplay = false; }
+                    else if (currentValue === '0' && num !== '.') currentValue = num;
+                    else if (num === '.' && currentValue.includes('.')) return;
+                    else currentValue += num;
+                    updateDisplay();
+                }
+                function appendOperator(op) {
+                    if (operator && !shouldResetDisplay) calculate();
+                    previousValue = currentValue;
+                    operator = op;
+                    shouldResetDisplay = true;
+                }
+                function calculate() {
+                    if (!operator || !previousValue) return;
+                    const prev = parseFloat(previousValue), current = parseFloat(currentValue);
+                    let result;
+                    switch (operator) {
+                        case '+': result = prev + current; break;
+                        case '-': result = prev - current; break;
+                        case '*': result = prev * current; break;
+                        case '/': result = current === 0 ? 'Error' : prev / current; break;
+                    }
+                    currentValue = typeof result === 'number' ? result.toString() : result;
+                    operator = null; previousValue = null; shouldResetDisplay = true;
+                    updateDisplay();
+                }
+                function clearDisplay() { currentValue = '0'; operator = null; previousValue = null; shouldResetDisplay = false; updateDisplay(); }
+                function deleteLast() {
+                    currentValue = currentValue.length > 1 ? currentValue.slice(0, -1) : '0';
+                    updateDisplay();
+                }
+            </script>
+        
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Utility Tools</h3>
+                    <p>Your one-stop solution for everyday online utilities</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#tools">Tools</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 biswaslamichhane00036@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Utility Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
